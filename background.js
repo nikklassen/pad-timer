@@ -64,7 +64,7 @@
       const maxStamina = getStaminaForRank(this.rank);
       const toAdd = Math.floor((Date.now() - this.lastIncrease) / STAMINA_INTERVAL);
       if (toAdd > 0) {
-        this.lastIncrease.setTime(this.lastIncrease.getTime() + toAdd * STAMINA_INTERVAL);
+        this.lastIncrease = this.lastIncrease + toAdd * STAMINA_INTERVAL;
         this.stamina = Math.min(this.stamina + toAdd, maxStamina);
       }
       this.full = this.stamina === maxStamina;
