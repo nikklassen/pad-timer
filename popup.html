@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/popup.css" type="text/css">
+  </head>
+  <body>
+
+    <div id="tabs">
+      <div id="tab-bar">
+        <span class="selected">Main</span><span>Alerts</span>
+      </div>
+
+      <div id="main-tab" class="tab visible">
+        <form id="run-form">
+          <div><strong>Run a dungeon</strong></div>
+          <div class="row">
+            <span data-cost="25">25 stam</span>
+            <span data-cost="40">40 stam</span>
+          </div>
+          <div class="row">
+            <span data-cost="50">50 stam</span>
+            <span data-cost="99">99 stam</span>
+          </div>
+          <div class="row">
+            <label for="custom-cost">Other: </label>
+            <input id="custom-cost" type="number" min="1" />
+          </div>
+          <input type="submit" value="Go" />
+        </form>
+
+        <form id="user-info-form">
+          <div class="row">
+            <label for="rank">Rank: </label>
+            <div>
+              <input type="number" name="rank" min="1" />
+            </div>
+          </div>
+          <div class="row">
+            <label>Stamina: </label>
+            <div>
+              <input type="number" name="stamina" min="1" />
+            </div>
+          </div>
+          <div class="row">
+            <div><input type="submit" value="Update" /></div>
+          </div>
+        </form>
+      </div>
+
+      <div id="alert-tab" class="tab">
+        <form id="alert-form">
+          <div>Alert me...</div>
+          <div>
+            <ul>
+              <li>
+            when I have at least <input type="number" min="1" name="stamina" /> stamina
+            </li>
+            <li>
+            at
+            <input type="number" min="1" max="12" name="hour" />:<input type="number" min="1" max="59" name="minute" /> <select name="am-pm">
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+            </li>
+</ul>
+          </div>
+          <input type="submit" value="Add alert" />
+        </form>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Condition</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="toast-container"><div class="message"></div></div>
+  </body>
+  <script src="popup.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,17 @@
+{
+    "name": "PADTimer",
+    "description": "PAD Timer",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "red_orb.png",
+        "default_title": "PAD Timer",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "web_accessible_resources": ["popup.js", "css/popup.css", "background.png"],
+    "permissions": ["notifications"]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "pad-timer",
+  "version": "0.0.1",
+  "description": "A Puzzle and Dragons timer",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.17.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikklassen/pad-timer.git"
+  },
+  "keywords": [
+    "pad",
+    "puzzle",
+    "dragons"
+  ],
+  "author": "Nik Klassen",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nikklassen/pad-timer/issues"
+  },
+  "homepage": "https://github.com/nikklassen/pad-timer#readme"
+}

@@ -1,0 +1,191 @@
+$black: #000;
+$light-grey: #d3d3d3;
+$light-yellow: #ffffe0;
+$green: #008000;
+$light-green: #90ee90;
+$red: #f00;
+$white: #fff;
+$pale-red: rgba(255, 0, 0, 0.8);
+
+html,
+body {
+    margin: 0;
+}
+
+body {
+    width: 200px;
+
+    &.wide {
+        width: 325px;
+    }
+}
+
+.visible {
+    display: block;
+}
+
+.row {
+    display: flex;
+    margin: 5px 0;
+
+    justify-content: space-around;
+}
+
+#current-stamina {
+    font-weight: bold;
+}
+
+#run-form {
+    [data-cost] {
+        border: 1px solid $black;
+        border-radius: 3px;
+
+        background: $light-grey;
+        cursor: pointer;
+
+        padding: 5px 0;
+        width: 75px;
+
+        color: $black;
+        text-align: center;
+
+        &:hover {
+            background: $light-yellow;
+        }
+
+        &.selected {
+            border: 1px solid $green;
+
+            background: $light-green;
+        }
+    }
+
+    label {
+        width: 33%;
+    }
+
+    [type='submit'] {
+        width: 50px;
+    }
+}
+
+#user-info-form {
+
+    label {
+        padding: 0 0 10px;
+
+        width: 33%;
+    }
+
+    input[type='number'] {
+        display: block;
+        width: 100%;
+    }
+
+    .row div {
+        flex: 1;
+    }
+}
+
+#toast-container {
+    display: none;
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+
+    border: 1px solid $red;
+    border-radius: 3px;
+
+    background: $pale-red;
+
+    height: 50px;
+
+    .message {
+        text-align: center;
+
+        line-height: 50px;
+        color: $white;
+        font-weight: bold;
+    }
+}
+
+#tabs {
+    #tab-bar {
+        width: 100%;
+
+        span {
+            display: inline-block;
+
+            margin: 0;
+
+            border: 1px solid $black;
+
+            cursor: pointer;
+
+            width: 49%;
+            height: 40px;
+
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+
+            &.selected {
+                background: $light-yellow;
+            }
+        }
+    }
+
+    .tab {
+        background: url('background.png') no-repeat center center fixed;
+        background-size: 100%;
+        background-color: rgb(8, 12, 8);
+
+        display: none;
+
+        padding: 10px;
+
+        height: 357px;
+
+        &.visible {
+            display: block;
+        }
+
+        color: white;
+    }
+}
+
+#alert-form {
+    > div {
+        margin-bottom: 10px;
+    }
+
+    [type='number'] {
+        width: 48px;
+    }
+}
+
+#alert-tab {
+    font-size: 1.2em;
+
+    overflow-y: auto;
+
+    li {
+        margin: 10px 0;
+    }
+
+    table {
+        background-color: white;
+
+        padding-bottom: 10px;
+
+        width: 100%;
+    }
+
+    table,
+    tr {
+        border: 1px solid $black;
+    }
+}
