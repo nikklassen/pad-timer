@@ -1,6 +1,6 @@
 {
-    "name": "PADTimer",
-    "description": "PAD Timer",
+    "name": "Puzzles and Dragons Timer",
+    "description": "A stamina tracker and notifier for Puzzles and Dragons",
     "version": "0.0.1",
     "manifest_version": 2,
     "icons": {
