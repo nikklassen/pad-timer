@@ -75,7 +75,7 @@
   let data = new PADData();
   const ALERT_TEMPLATE = Object.freeze({
     type: 'basic',
-    iconUrl: 'red_orb.png',
+    iconUrl: 'images/red_orb.png',
     title: 'PAD Alert',
   });
 
