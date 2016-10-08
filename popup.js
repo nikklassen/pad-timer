@@ -120,6 +120,7 @@
       if (msg === null) {
         return;
       }
+      msg.once = this.once.checked;
 
       chrome.runtime.sendMessage(msg, alerts => {
         updateAlerts(alerts);
@@ -138,18 +139,14 @@
       return `>= <span style="color: blue">${alert.stamina}</span> stamina`;
     }
 
-    let hour = alert.hour;
-    let amPm = 'AM';
-    if (hour === 0) {
-      hour = 12;
-    } else if (hour > 12) {
-      hour -= 12;
-      amPm = 'PM';
-    } else if (hour === 12) {
-      amPm = 'PM';
+    let amPm = alert.hour < 12 ? 'AM' : 'PM';
+    let hour = convert24to12(alert.hour);
+    let minute = alert.minute;
+    if (minute < 10) {
+      minute = '0' + minute;
     }
 
-    return `${hour}:${alert.minute} ${amPm}`;
+    return `${hour}:${minute} ${amPm}`;
   }
 
   function updateAlerts(alerts) {
@@ -185,6 +182,8 @@
       document.body.classList.add('wide');
       mainTab.classList.remove('visible');
       alertTab.classList.add('visible');
+
+      initAlertForm();
     } else {
       document.body.classList.remove('wide');
       mainTab.classList.add('visible');
@@ -203,6 +202,22 @@
     });
   }
 
+  function convert24to12(hour) {
+    const newHour = hour % 12;
+    if (newHour === 0) {
+      newHour = 12;
+    }
+    return newHour;
+  }
+
+  function initAlertForm() {
+    const form = document.getElementById('alert-form');
+    const hour = new Date().getHours();
+    form.hour.value = convert24to12(hour);
+    form.minute.value = '00';
+    form['am-pm'].value = hour < 12 ? 'AM' : 'PM';
+  }
+
   let data = {};
 
   function redraw() {
@@ -211,11 +226,12 @@
     }, data => {
       updateStamina(data.stamina);
       updateRank(data.rank);
+      updateAlerts(data.alerts);
     });
   }
 
   initAlerts();
   initTabs();
   redraw();
-  setInterval(redraw, 1000);
+  setInterval(redraw, 5000);
 }());

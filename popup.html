@@ -55,14 +55,15 @@
             when I have at least <input type="number" min="1" name="stamina" /> stamina
             </li>
             <li>
-            at
-            <input type="number" min="1" max="12" name="hour" />:<input type="number" min="1" max="59" name="minute" /> <select name="am-pm">
+            or, at
+            <input type="number" min="1" max="12" name="hour" />:<input type="number" min="0" max="59" name="minute" /> <select name="am-pm">
               <option value="AM">AM</option>
               <option value="PM">PM</option>
             </select>
             </li>
 </ul>
           </div>
+          <label>One time alert <input name="once" type="checkbox" checked/></label><br />
           <input type="submit" value="Add alert" />
         </form>
 

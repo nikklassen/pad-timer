@@ -108,7 +108,7 @@
           chrome.notifications.create(notification);
         }
       } else {
-        if (!(now.getHours() === alert.hour && now.getMinutes() === alert.getMinutes())) {
+        if (!(now.getHours() === alert.hour && now.getMinutes() === alert.minute)) {
           alert.notified = false;
         } else {
           if (alert.notified) {
@@ -136,6 +136,7 @@
         }
       }
     });
+    data.alerts = data.alerts.filter(a => !(a.notified && a.once));
   }
 
   setInterval(() => {
