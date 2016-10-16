@@ -125,9 +125,13 @@
           } else if (hour === 12) {
             am = 'PM';
           }
+          let minute = alert.minute;
+          if (minute < 10) {
+            minute = '0' + minute;
+          }
 
           const notification = {
-            message: `It is now ${hour}:${alert.minute} ${amPm}`,
+            message: `It is now ${hour}:${minute} ${amPm}`,
           };
           Object.assign(notification, ALERT_TEMPLATE);
 

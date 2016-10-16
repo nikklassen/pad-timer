@@ -32,10 +32,14 @@
       type: 'update',
     };
     ['rank', 'stamina'].forEach(f => {
-      const v = this[f].value;
+      const el = this[f];
+      const v = el.value;
+      el.blur();
       if (v.length > 0) {
         msg[f] = parseInt(v, 10);
+        el.placeholder = v;
       }
+      el.value = '';
     });
 
     chrome.runtime.sendMessage(msg);
@@ -77,17 +81,11 @@
   });
 
   function updateStamina(stamina) {
-    const staminaInput = document.getElementById('user-info-form').stamina;
-    if (staminaInput !== document.activeElement) {
-      staminaInput.value = stamina;
-    }
+    document.getElementById('user-info-form').stamina.placeholder = stamina;
   }
 
   function updateRank(rank) {
-    const rankInput = document.getElementById('user-info-form').rank;
-    if (rankInput !== document.activeElement) {
-      rankInput.value = rank;
-    }
+    document.getElementById('user-info-form').rank.placeholder = rank;
   }
 
   function initAlerts() {
@@ -157,6 +155,7 @@
       <tr>
         <td>${alert.stamina ? 'Stamina' : 'Time'}</td>
         <td>${getConditionText(alert)}</td>
+        <td>${alert.once ? '&#10004;' : ''}</td>
         <td><button data-alert-num="${i}">Remove</button></td>
       </tr>
       `

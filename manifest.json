@@ -1,7 +1,7 @@
 {
-    "name": "Puzzles and Dragons Timer",
-    "description": "A stamina tracker and notifier for Puzzles and Dragons",
-    "version": "0.0.1",
+    "name": "Puzzle and Dragons Timer",
+    "description": "A stamina tracker and notifier for Puzzle and Dragons",
+    "version": "0.1.0",
     "manifest_version": 2,
     "icons": {
         "128": "images/red_orb.png"
